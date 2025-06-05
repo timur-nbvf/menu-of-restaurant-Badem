@@ -35,7 +35,7 @@ function submitOrder() {
 
   const message = `Ваш заказ:\n\n${orderLines.join('\n')}\n\nОбщая сумма заказа: ${total.toLocaleString()} сум`;
 
-  fetch("https://your-server-url/send-order", {
+  fetch("https://c85793f6-3f4b-4465-8591-3285f6fcd0c8-00-2f8dqj76w4b6f.sisko.replit.dev/send-order", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
