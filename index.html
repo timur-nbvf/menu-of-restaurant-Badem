@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Меню ресторана</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Меню ресторана</h1>
+    <div class="menu" id="menu">
+      <div class="dish" data-name="Суп" data-price="30000">
+        <span class="name">Суп</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+      <div class="dish" data-name="Плов" data-price="50000">
+        <span class="name">Плов</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+      <div class="dish" data-name="Сок" data-price="10000">
+        <span class="name">Сок</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">−</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+    </div>
+    <button id="submitBtn" onclick="submitOrder()">Отправить заказ</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
