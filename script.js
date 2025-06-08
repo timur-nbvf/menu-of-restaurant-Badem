@@ -5,16 +5,9 @@ function changeQty(btn, delta) {
   span.textContent = qty;
 }
 
-function submitOrder() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const client_id = urlParams.get("client_id");
-  if (!client_id) {
-    alert("Ошибка: недостаточно данных (client_id отсутствует).");
-    return;
-  }
-
+function sendOrder() {
   const dishes = document.querySelectorAll('.dish');
-  let orderLines = [];
+  let order = [];
   let total = 0;
 
   dishes.forEach(dish => {
@@ -23,31 +16,26 @@ function submitOrder() {
       const name = dish.dataset.name;
       const price = parseInt(dish.dataset.price);
       const sum = qty * price;
-      orderLines.push(`${name} - ${qty} шт. ${sum.toLocaleString()} сум`);
       total += sum;
+      order.push(`${name} - ${qty} шт. × ${price}`);
     }
   });
 
-  if (orderLines.length === 0) {
-    alert("Вы не выбрали ни одного блюда.");
-    return;
-  }
+  const client_id = Telegram.WebApp.initDataUnsafe.user.id;
 
-  const message = `Ваш заказ:\n\n${orderLines.join('\n')}\n\nОбщая сумма заказа: ${total.toLocaleString()} сум`;
-
-  fetch("https://c85793f6-3f4b-4465-8591-3285f6fcd0c8-00-2f8dqj76w4b6f.sisko.replit.dev/send-order", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      order: message,
-      client_id: client_id
-    })
+  fetch('https://c85793f6-3f4b-4465-8591-3285f6fcd0c8-00-2f8dqj76w4b6f.sisko.replit.dev/send-order', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ order, total, client_id })
   })
-  .then(response => {
-    if (!response.ok) throw new Error("Ошибка при отправке заказа");
-    window.location.href = "https://example.com/payment";
-  })
-  .catch(error => {
-    alert("Ошибка при отправке заказа: " + error.message);
+  .then(res => res.json())
+  .then(data => {
+    if (data.status === "ok") {
+      Telegram.WebApp.close();  // Закрыть мини-приложение
+    } else {
+      alert("Ошибка: " + data.detail);
+    }
   });
 }
