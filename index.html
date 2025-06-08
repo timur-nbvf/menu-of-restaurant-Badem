@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Badem Menu</title>
+  <title>Меню</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="menu">
 
-    <h2>ГОРЯЧЕЕ</h2>
-    <div class="dish" data-name="Плов" data-price="30000">
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" />
-      <div class="info">
-        <p>Плов<br><span>30 000 сумм</span></p>
+    <h2>ПЕРВЫЕ БЛЮДА</h2>
+    <div class="grid">
+      <div class="dish" data-name="Суп" data-price="250">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" />
+        <p>Суп</p>
+        <span>250 ₽</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">-</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="dish" data-name="Борщ" data-price="300">
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075926.png" />
+        <p>Борщ</p>
+        <span>300 ₽</span>
         <div class="controls">
           <button onclick="changeQty(this, -1)">-</button>
           <span>0</span>
@@ -22,10 +34,48 @@
       </div>
     </div>
 
-    <div class="dish" data-name="Суп" data-price="20000">
-      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075926.png" />
-      <div class="info">
-        <p>Суп<br><span>20 000 сумм</span></p>
+    <h2>ВТОРЫЕ БЛЮДА</h2>
+    <div class="grid">
+      <div class="dish" data-name="Стейк из лосося" data-price="550">
+        <img src="https://cdn-icons-png.flaticon.com/512/706/706195.png" />
+        <p>Стейк из лосося</p>
+        <span>550 ₽</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">-</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="dish" data-name="Лазанья" data-price="450">
+        <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" />
+        <p>Лазанья</p>
+        <span>450 ₽</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">-</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>НАПИТКИ</h2>
+    <div class="grid">
+      <div class="dish" data-name="Апельсиновый сок" data-price="150">
+        <img src="https://cdn-icons-png.flaticon.com/512/5269/5269290.png" />
+        <p>Апельсиновый сок</p>
+        <span>150 ₽</span>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">-</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+
+      <div class="dish" data-name="Кофе" data-price="100">
+        <img src="https://cdn-icons-png.flaticon.com/512/3047/3047927.png" />
+        <p>Кофе</p>
+        <span>100 ₽</span>
         <div class="controls">
           <button onclick="changeQty(this, -1)">-</button>
           <span>0</span>
