@@ -1,62 +1,123 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  background: #1e1e1e;
-  color: white;
-  font-family: sans-serif;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  padding: 15px;
 }
 
 .menu {
-  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 25px 0 10px;
+  color: #444;
+  padding-left: 5px;
 }
 
 .dish {
   display: flex;
   align-items: center;
-  background: #2c2c2c;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 10px 12px;
   margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .dish img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
 }
 
 .info {
-  margin-left: 15px;
   flex: 1;
+}
+
+.info p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.info span {
+  font-size: 14px;
+  color: #888;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+}
+
+.controls button {
+  width: 32px;
+  height: 32px;
+  background-color: #fbe8c2;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: #fcd391;
 }
 
 .controls span {
   min-width: 20px;
   text-align: center;
-}
-
-.controls button {
-  background: #fbe8c2;
-  color: black;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 6px;
   font-size: 16px;
 }
 
+/* Кнопка отправки */
 .send {
   width: 100%;
   padding: 15px;
-  background: #fbe8c2;
-  color: black;
+  background-color: #fbe8c2;
+  color: #000;
+  font-weight: bold;
+  font-size: 17px;
   border: none;
   border-radius: 10px;
-  font-size: 18px;
   margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+.send:hover {
+  background-color: #fcd391;
+}
 
+/* Адаптив: на десктопе — 2 колонки */
+@media (min-width: 700px) {
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  h2 {
+    grid-column: span 2;
+  }
+
+  .send {
+    grid-column: span 2;
+  }
+}
