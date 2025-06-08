@@ -3,39 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Меню ресторана</title>
+  <title>Badem Menu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Меню ресторана</h1>
-    <div class="menu" id="menu">
-      <div class="dish" data-name="Суп" data-price="30000">
-        <span class="name">Суп</span>
+  <div class="menu">
+
+    <h2>ГОРЯЧЕЕ</h2>
+    <div class="dish" data-name="Плов" data-price="30000">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" />
+      <div class="info">
+        <p>Плов<br><span>30 000 сумм</span></p>
         <div class="controls">
-          <button onclick="changeQty(this, -1)">−</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-      <div class="dish" data-name="Плов" data-price="50000">
-        <span class="name">Плов</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">−</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-      <div class="dish" data-name="Сок" data-price="10000">
-        <span class="name">Сок</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">−</button>
+          <button onclick="changeQty(this, -1)">-</button>
           <span>0</span>
           <button onclick="changeQty(this, 1)">+</button>
         </div>
       </div>
     </div>
-    <button id="submitBtn" onclick="submitOrder()">Отправить заказ</button>
+
+    <div class="dish" data-name="Суп" data-price="20000">
+      <img src="https://cdn-icons-png.flaticon.com/512/3075/3075926.png" />
+      <div class="info">
+        <p>Суп<br><span>20 000 сумм</span></p>
+        <div class="controls">
+          <button onclick="changeQty(this, -1)">-</button>
+          <span>0</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="send" onclick="sendOrder()">Оформить заказ</button>
   </div>
   <script src="script.js"></script>
 </body>
