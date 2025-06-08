@@ -1,55 +1,62 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f5f5f5;
-}
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-  text-align: center;
+  background: #1e1e1e;
+  color: white;
+  font-family: sans-serif;
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 20px;
 }
 
 .dish {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  background: #2c2c2c;
+  margin-bottom: 15px;
   padding: 10px;
-  background: #f0f0f0;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
-.name {
-  font-weight: bold;
+.dish img {
+  width: 70px;
+  height: 70px;
+}
+
+.info {
+  margin-left: 15px;
+  flex: 1;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+}
+
+.controls span {
+  min-width: 20px;
+  text-align: center;
 }
 
 .controls button {
+  background: #fbe8c2;
+  color: black;
+  border: none;
   padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-@media (max-width: 600px) {
-  .dish {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.send {
+  width: 100%;
+  padding: 15px;
+  background: #fbe8c2;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-top: 30px;
 }
+
+
