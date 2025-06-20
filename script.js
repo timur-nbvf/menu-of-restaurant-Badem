@@ -1,41 +1,59 @@
-function changeQty(btn, delta) {
-  const span = btn.parentNode.querySelector('span');
-  let qty = parseInt(span.textContent);
-  qty = Math.max(0, qty + delta);
-  span.textContent = qty;
-}
+const items = document.querySelectorAll(".menu-item");
+const orderButton = document.getElementById("submit-order");
 
-function sendOrder() {
-  const dishes = document.querySelectorAll('.dish');
-  let order = [];
-  let total = 0;
+items.forEach((item) => {
+  const plus = item.querySelector(".plus");
+  const minus = item.querySelector(".minus");
+  const count = item.querySelector(".count");
 
-  dishes.forEach(dish => {
-    const qty = parseInt(dish.querySelector('.controls span').textContent);
-    if (qty > 0) {
-      const name = dish.dataset.name;
-      const price = parseInt(dish.dataset.price);
-      const sum = qty * price;
-      total += sum;
-      order.push(`${name} - ${qty} шт. × ${price}`);
+  plus.addEventListener("click", () => {
+    count.textContent = parseInt(count.textContent) + 1;
+  });
+
+  minus.addEventListener("click", () => {
+    const value = parseInt(count.textContent);
+    if (value > 0) {
+      count.textContent = value - 1;
+    }
+  });
+});
+
+orderButton.addEventListener("click", () => {
+  const order = [];
+
+  items.forEach((item) => {
+    const name = item.querySelector(".item-name").textContent;
+    const price = item.querySelector(".item-price").textContent;
+    const count = parseInt(item.querySelector(".count").textContent);
+
+    if (count > 0) {
+      order.push({ name, price, count });
     }
   });
 
-  const client_id = Telegram.WebApp.initDataUnsafe.user.id;
+  if (order.length === 0) {
+    alert("Выберите хотя бы одно блюдо.");
+    return;
+  }
 
-  fetch('https://c85793f6-3f4b-4465-8591-3285f6fcd0c8-00-2f8dqj76w4b6f.sisko.replit.dev/send-order', {
-    method: 'POST',
+  const payload = {
+    order: order,
+  };
+
+  fetch("/send-order", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ order, total, client_id })
+    body: JSON.stringify(payload),
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.status === "ok") {
-      Telegram.WebApp.close();  // Закрыть мини-приложение
-    } else {
-      alert("Ошибка: " + data.detail);
-    }
-  });
-}
+    .then((res) => res.json())
+    .then((data) => {
+      alert("Заказ отправлен!");
+      window.location.href = "/payment";
+    })
+    .catch((err) => {
+      console.error(err);
+      alert("Произошла ошибка при отправке заказа.");
+    });
+});
