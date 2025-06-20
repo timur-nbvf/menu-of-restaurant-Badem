@@ -3,89 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Меню</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Меню Badem</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <div class="menu">
+  <div class="menu-container">
+    <h2 class="section-title">Напитки</h2>
 
-    <h2>ПЕРВЫЕ БЛЮДА</h2>
-    <div class="grid">
-      <div class="dish" data-name="Суп" data-price="250">
-        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" />
-        <p>Суп</p>
-        <span>250 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
+    <div class="items-wrapper">
+      <!-- БЛЮДО -->
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/60" alt="Напиток" class="item-image">
+        <div class="item-info">
+          <div class="item-name">Айран</div>
+          <div class="item-price">15 000 сум</div>
+        </div>
+        <div class="item-controls">
+          <button class="minus">–</button>
+          <span class="count">0</span>
+          <button class="plus">+</button>
         </div>
       </div>
 
-      <div class="dish" data-name="Борщ" data-price="300">
-        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075926.png" />
-        <p>Борщ</p>
-        <span>300 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/60" alt="Напиток" class="item-image">
+        <div class="item-info">
+          <div class="item-name">Чай</div>
+          <div class="item-price">10 000 сум</div>
+        </div>
+        <div class="item-controls">
+          <button class="minus">–</button>
+          <span class="count">0</span>
+          <button class="plus">+</button>
         </div>
       </div>
+      <!-- /БЛЮДО -->
+
+      <!-- Добавь сюда ещё блюда 👆 -->
     </div>
 
-    <h2>ВТОРЫЕ БЛЮДА</h2>
-    <div class="grid">
-      <div class="dish" data-name="Стейк из лосося" data-price="550">
-        <img src="https://cdn-icons-png.flaticon.com/512/706/706195.png" />
-        <p>Стейк из лосося</p>
-        <span>550 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-
-      <div class="dish" data-name="Лазанья" data-price="450">
-        <img src="https://cdn-icons-png.flaticon.com/512/706/706164.png" />
-        <p>Лазанья</p>
-        <span>450 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <h2>НАПИТКИ</h2>
-    <div class="grid">
-      <div class="dish" data-name="Апельсиновый сок" data-price="150">
-        <img src="https://cdn-icons-png.flaticon.com/512/5269/5269290.png" />
-        <p>Апельсиновый сок</p>
-        <span>150 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-
-      <div class="dish" data-name="Кофе" data-price="100">
-        <img src="https://cdn-icons-png.flaticon.com/512/3047/3047927.png" />
-        <p>Кофе</p>
-        <span>100 ₽</span>
-        <div class="controls">
-          <button onclick="changeQty(this, -1)">-</button>
-          <span>0</span>
-          <button onclick="changeQty(this, 1)">+</button>
-        </div>
-      </div>
-    </div>
-
-    <button class="send" onclick="sendOrder()">Оформить заказ</button>
+    <button id="submit-order">Оформить заказ</button>
   </div>
-  <script src="script.js"></script>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>
